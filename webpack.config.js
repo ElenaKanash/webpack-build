@@ -36,10 +36,16 @@ module.exports = ({develop}) => ({
           {
             test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
             type: 'asset/resource',
+            generator: {
+              filename: 'img/[base]',
+            },
           },
           {
             test: /\.(woff(2)?|eot|ttf|otf)$/i,
             type: 'asset/resource',
+            generator: {
+              filename: 'fonts/[base]',
+            },
           },
           {
             test: /\.css$/i,
@@ -66,7 +72,7 @@ module.exports = ({develop}) => ({
         {from: './src/img', to: './img'}
       ]
     }),
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
   ],
   ...devServer(develop),
 });
